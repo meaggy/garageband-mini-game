@@ -25,7 +25,9 @@ for (let i = 0; i < document.querySelectorAll("button").length; i++) {
 document.addEventListener('keydown', function(event){
     console.log(event.key)
     makeAudio(event.key)
+    // record the key strokes
 
 
 })
 
+// 
