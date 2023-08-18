@@ -90,7 +90,7 @@ footer {
 }
 
 .record{
-   width: 100px;
+  width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: red; 
@@ -100,4 +100,20 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 
+}
+
+/*square*/
+.record:hover {
+   /* Hover color */
+  border-radius: 0;
+  width: 100px;
+}
+
+.play {
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid red; /* Triangle color */
 }
