@@ -117,3 +117,10 @@ footer {
   border-right: 50px solid transparent;
   border-top: 100px solid red; /* Triangle color */
 }
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+
+
+}

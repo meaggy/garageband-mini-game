@@ -21,6 +21,7 @@ console.log("at button click");
 // Button click
 for (let i = 0; i < document.querySelectorAll("button").length; i++) {
      document.querySelectorAll("button")[i].addEventListener('click', function () {
+        buttonAnimation(this.innerHTML);
         makeAudio(this.innerHTML); 
         keyRecord.push(this.innerHTML);   
     });
@@ -30,7 +31,7 @@ console.log("at keyboard click");
 
 // Keyboard click
 document.addEventListener('keydown', (event) => {
-    
+    buttonAnimation(event.key);    
     console.log(event.key);
     keyRecord.push(event.key);
     console.log("from within the keydown listener", keyRecord);
@@ -38,6 +39,8 @@ document.addEventListener('keydown', (event) => {
     // record the key strokes, pass th data to another functio
 
 });
+
+
 console.log("at record click");
 
 // Record button 
@@ -76,12 +79,23 @@ playRecording.addEventListener("click", (event) => {
     }
     else {
         console.log(keyRecord)
-        for (let i of keyRecord) {
-
-            console.log("playback function -->", i)
-            makeAudio(i);
+        for (let i of keyRecord) {            
+            console.log("playback function -->", i);
+            setTimeout(makeAudio(i), 100);
         }
     }
 }
 );
 
+
+function buttonAnimation(keyPressed) {
+    let keySelector =  document.querySelector(`.${keyPressed}`)
+    keySelector.classList.add("pressed")
+    setTimeout(function () {
+        keySelector.classList.remove("pressed")
+    }, 100)
+}
+
+// function resetAnimation(keyPressed) {
+//     document.querySelector(`.${keyPressed}`).classList.remove("pressed")
+// }
